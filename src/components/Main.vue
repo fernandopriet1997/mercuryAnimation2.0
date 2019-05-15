@@ -161,6 +161,18 @@
       Frame Guardado exitosamente
       <v-btn flat color="primary" @click.native="saveSnack = false">Close</v-btn>
     </v-snackbar>
+    <v-btn color="success" @click="testAxios()">APUCHARRALE WE</v-btn>
+    <v-dialog
+      v-model="modal"
+      scrollable fullscreen 
+      persistent :overlay="false"
+      max-width="500px"
+      transition="dialog-transition"
+    >
+      <v-card>
+        {{ response }}
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -181,6 +193,7 @@ import Seeding from './Seeding.vue'
     ],
     data(){
       return {
+        modal: false,
         seedingModal: false,
         saveSnack: false,
         orientation: 'v',
@@ -268,6 +281,14 @@ import Seeding from './Seeding.vue'
       }
     },
     methods: {
+      testAxios(){
+        axios.get('https://lpdaacsvc.cr.usgs.gov/appeears/api/product').then((res) => {
+          this.response = res.data;
+          this.modal = true;
+        }).carch((error) => {
+          this.response = error
+        })
+      }
       addTab(){
         this.currentFotogram = this.currentFotogram * "\t";
       },
