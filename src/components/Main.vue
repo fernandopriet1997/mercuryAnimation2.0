@@ -194,6 +194,7 @@ import Seeding from './Seeding.vue'
     data(){
       return {
         modal: false,
+        response: '',
         seedingModal: false,
         saveSnack: false,
         orientation: 'v',
@@ -285,10 +286,10 @@ import Seeding from './Seeding.vue'
         axios.get('https://lpdaacsvc.cr.usgs.gov/appeears/api/product').then((res) => {
           this.response = res.data;
           this.modal = true;
-        }).carch((error) => {
+        }).catch((error) => {
           this.response = error
         })
-      }
+      },
       addTab(){
         this.currentFotogram = this.currentFotogram * "\t";
       },

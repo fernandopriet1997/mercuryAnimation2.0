@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.e30a7bb5d0470f7852c6be7d1e74b8f7.js"
+  "/precache-manifest.add82a89a8888485f89a03cfd68a5f39.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "charanimaton"});
